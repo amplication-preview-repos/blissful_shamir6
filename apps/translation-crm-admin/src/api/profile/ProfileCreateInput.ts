@@ -1,0 +1,32 @@
+import { RateCreateNestedManyWithoutProfilesInput } from "./RateCreateNestedManyWithoutProfilesInput";
+
+export type ProfileCreateInput = {
+  capacity?: Array<"Option1">;
+  certification?: Array<"Option1">;
+  country?: "Option1" | null;
+  email?: string | null;
+  experienceInField?: Array<"Option1">;
+  firstname?: string | null;
+  haveWorkedWithClient?: string | null;
+  haveWorkedWithMls?: boolean | null;
+  interpretationMethod?: "Option1" | null;
+  interpretationType?: "Option1" | null;
+  lastname?: string | null;
+  mileage?: boolean | null;
+  minimumHours?: "Option1" | null;
+  nativeLanguages?: string | null;
+  notes?: string | null;
+  paymentMethods?: Array<"Option1">;
+  phone?: string | null;
+  preference?: "Option1" | null;
+  rateOtherComments?: string | null;
+  ratePerHour?: number | null;
+  ratePerWordBySource?: number | null;
+  ratePerWordByTarget?: number | null;
+  rates?: RateCreateNestedManyWithoutProfilesInput;
+  sourceLanguages?: string | null;
+  state?: "Option1" | null;
+  targetLanguages?: string | null;
+  tmFields?: string | null;
+  zipCode?: string | null;
+};

@@ -1,0 +1,33 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { RateListRelationFilter } from "../rate/RateListRelationFilter";
+
+export type ProfileWhereInput = {
+  country?: "Option1";
+  email?: StringNullableFilter;
+  firstname?: StringNullableFilter;
+  haveWorkedWithClient?: StringNullableFilter;
+  haveWorkedWithMls?: BooleanNullableFilter;
+  id?: StringFilter;
+  interpretationMethod?: "Option1";
+  interpretationType?: "Option1";
+  lastname?: StringNullableFilter;
+  mileage?: BooleanNullableFilter;
+  minimumHours?: "Option1";
+  nativeLanguages?: StringNullableFilter;
+  notes?: StringNullableFilter;
+  phone?: StringNullableFilter;
+  preference?: "Option1";
+  rateOtherComments?: StringNullableFilter;
+  ratePerHour?: FloatNullableFilter;
+  ratePerWordBySource?: FloatNullableFilter;
+  ratePerWordByTarget?: FloatNullableFilter;
+  rates?: RateListRelationFilter;
+  sourceLanguages?: StringNullableFilter;
+  state?: "Option1";
+  targetLanguages?: StringNullableFilter;
+  tmFields?: StringNullableFilter;
+  zipCode?: StringNullableFilter;
+};
