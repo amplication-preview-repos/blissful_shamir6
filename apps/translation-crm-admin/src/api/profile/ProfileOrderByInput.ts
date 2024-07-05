@@ -1,0 +1,34 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type ProfileOrderByInput = {
+  capacity?: SortOrder;
+  certification?: SortOrder;
+  country?: SortOrder;
+  createdAt?: SortOrder;
+  email?: SortOrder;
+  experienceInField?: SortOrder;
+  firstname?: SortOrder;
+  haveWorkedWithClient?: SortOrder;
+  haveWorkedWithMls?: SortOrder;
+  id?: SortOrder;
+  interpretationMethod?: SortOrder;
+  interpretationType?: SortOrder;
+  lastname?: SortOrder;
+  mileage?: SortOrder;
+  minimumHours?: SortOrder;
+  nativeLanguages?: SortOrder;
+  notes?: SortOrder;
+  paymentMethods?: SortOrder;
+  phone?: SortOrder;
+  preference?: SortOrder;
+  rateOtherComments?: SortOrder;
+  ratePerHour?: SortOrder;
+  ratePerWordBySource?: SortOrder;
+  ratePerWordByTarget?: SortOrder;
+  sourceLanguages?: SortOrder;
+  state?: SortOrder;
+  targetLanguages?: SortOrder;
+  tmFields?: SortOrder;
+  updatedAt?: SortOrder;
+  zipCode?: SortOrder;
+};

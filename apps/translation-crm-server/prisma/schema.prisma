@@ -1,0 +1,143 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Profile {
+  capacity             EnumProfileCapacity[]
+  certification        EnumProfileCertification[]
+  country              EnumProfileCountry?
+  createdAt            DateTime                         @default(now())
+  email                String?
+  experienceInField    EnumProfileExperienceInField[]
+  firstname            String?
+  haveWorkedWithClient String?
+  haveWorkedWithMls    Boolean?
+  id                   String                           @id @default(cuid())
+  interpretationMethod EnumProfileInterpretationMethod?
+  interpretationType   EnumProfileInterpretationType?
+  lastname             String?
+  mileage              Boolean?
+  minimumHours         EnumProfileMinimumHours?
+  nativeLanguages      String?
+  notes                String?
+  paymentMethods       EnumProfilePaymentMethods[]
+  phone                String?
+  preference           EnumProfilePreference?
+  rateOtherComments    String?
+  ratePerHour          Float?
+  ratePerWordBySource  Float?
+  ratePerWordByTarget  Float?
+  rates                Rate[]
+  sourceLanguages      String?
+  state                EnumProfileState?
+  targetLanguages      String?
+  tmFields             String?
+  updatedAt            DateTime                         @updatedAt
+  zipCode              String?
+}
+
+model Language {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  isoCode   String?
+  name      String?
+  updatedAt DateTime @updatedAt
+}
+
+model UserRole {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  name        String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Preference {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  name        String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Rate {
+  createdAt       DateTime              @default(now())
+  id              String                @id @default(cuid())
+  minimumHours    EnumRateMinimumHours?
+  perHour         Float?
+  perWordBySource Float?
+  perWordByTarget Float?
+  profile         Profile?              @relation(fields: [profileId], references: [id])
+  profileId       String?
+  travelAllowance Boolean?
+  updatedAt       DateTime              @updatedAt
+}
+
+model Certification {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  name        String?
+  updatedAt   DateTime @updatedAt
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+enum EnumProfileCapacity {
+  Option1
+}
+
+enum EnumProfileCertification {
+  Option1
+}
+
+enum EnumProfileCountry {
+  Option1
+}
+
+enum EnumProfileExperienceInField {
+  Option1
+}
+
+enum EnumProfileInterpretationMethod {
+  Option1
+}
+
+enum EnumProfileInterpretationType {
+  Option1
+}
+
+enum EnumProfileMinimumHours {
+  Option1
+}
+
+enum EnumProfilePaymentMethods {
+  Option1
+}
+
+enum EnumProfilePreference {
+  Option1
+}
+
+enum EnumProfileState {
+  Option1
+}
+
+enum EnumRateMinimumHours {
+  Option1
+}
